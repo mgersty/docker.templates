@@ -14,4 +14,4 @@ ARG JAR_FILE=gs-spring-boot-docker-0.1.0.jar
 ADD ${JAR_FILE} demo-app.jar
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/demo-app.jar"]
+ENTRYPOINT ["java","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005","-Djava.security.egd=file:/dev/./urandom","-jar","/demo-app.jar"]
